@@ -1,0 +1,12 @@
+services:
+  voicehub:
+    build: ./server
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./server/.env
+    volumes:
+      - voicehub-data:/app/data
+volumes:
+  voicehub-data:
